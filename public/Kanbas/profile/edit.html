@@ -4,135 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit Profile</title>
+    
+    <link rel="stylesheet" href="styles.css">
+   
 </head>
 
 <body>
-    <table border="0" width="100%">
-        <tbody>
-            <tr valign="top">
-                <!--Kanbas Navigation-->
-                <td>
-                    <ul>
-                        <li> <a href="../account.html">Account</a> </li>
-                        <li> <a href="#">Dashboard</a> </li>
-                        <li> <a href="../courses.html">Courses</a> </li>
-                        <li> <a href="#">Calendar</a> </li>
-                        <li> <a href="#">Inbox</a> </li>
-                        <li> <a href="#">History</a> </li>
-                        <li> <a href="#">Studio</a> </li>
-                        <li> <a href="#">Commons</a> </li>
-                        <li> <a href="#">Help</a> </li>
-                    </ul>
-                </td>
+    <div id="container">
+        <!-- Kanbas Navigation -->
+        <div id="navigation-column">
+            <ul>
+                <li><a href="../account.html">Account</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="../courses.html">Courses</a></li>
+                <li><a href="#">Calendar</a></li>
+                <li><a href="#">Inbox</a></li>
+                <li><a href="#">History</a></li>
+                <li><a href="#">Studio</a></li>
+                <li><a href="#">Commons</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </div>
 
-                <!--Course Navigation-->
-                <td>
-                    <ul>
-                        <li> <a href="#">Notifications</a> </li>
-                        <li> <a href="#">Profile</a> </li>
-                        <li> <a href="#">Files</a> </li>
-                        <li> <a href="#">Settings</a> </li>
-                        <li> <a href="#">ePortoflios</a> </li>
-                        <li> <a href="#">Shared Content</a> </li>
-                        <li> <a href="#">The Hub</a> </li>
-                        <li> <a href="#">Qwuickly Course Tools</a> </li>
-                        <li> <a href="#">Global Announcements</a> </li>
-                    </ul>
-                </td>
+        <!-- Course Navigation -->
+        <div id="course-navigation-column">
+            <ul>
+                <li><a href="#">Notifications</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Files</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">ePortfolios</a></li>
+                <li><a href="#">Shared Content</a></li>
+                <li><a href="#">The Hub</a></li>
+                <li><a href="#">Quickly Course Tools</a></li>
+                <li><a href="#">Global Announcements</a></li>
+            </ul>
+        </div>
 
+        <!-- Profile -->
+        <div id="profile-column">
+            <form id="profileedit">
 
-                <!--Profile-->
-                <td>
+                <h1>Alidar Kuatbekov</h1>
 
+                <label for="name">Name:</label>
+                <input type="text" id="name" value="Alidar Kuatbekov" />
 
-                <td>
-                    <form id="profileedit"></form>
+                <label for="pronouns">Pronouns:</label>
+                <input type="text" id="pronouns" value="He/Him" />
 
-                    <h1>Alidar Kuatbekov</h1>
+                <label for="title">Title:</label>
+                <input type="text" id="title" value="Student" />
 
-                    <label> Name:*</label>
-                    <input type="text" value="Alidar Kuatbekov" />
+                <h2>Contact</h2>
+                <p>No registered services. You can add some on the settings page.</p>
 
-                    <label> Pronouns:*</label>
-                    <input type="text" value="He/Him" />
+                <h2>Biography</h2>
+                <textarea id="biography">Almaty, Kazakhstan</textarea>
 
-                    <br> </br>
-
-                    <label> Title</label>
-                    <input type="text" value="Student" />
-
-
-
-                    <h2>Contact</h2>
-                    No registered services you can add some on the settings page
-
-                    <h2>Biography</h2>
-                    Almaty, Kazakhstan
-                    <br> </br>
-                    <textarea> Almaty Kazakhstan</textarea>
-
-                    <h2>Links</h2>
+                <h2>Links</h2>
+                <ul>
                     <li>None</li>
-                    <br> </br>
-                    <table width="0%">
+                </ul>
+
+                <table id="profile-links-table">
+                    <thead>
                         <tr>
-
-                            <th>
-                                <h3>Title</h3>
-                            </th>
-                            <th>
-                                <h3>URL</h3>
-                            </th>
+                            <th>Title</th>
+                            <th>URL</th>
                         </tr>
+                    </thead>
+                    <tbody>
                         <tr>
-                            <td>
-                                <input type="text" value="" />
-                            </td>
-                            <td>
-                                <label> -> </label>
-                            <td>
-                                <input type="text" value="" />
-                            </td>
-                            <td>
-                                <a href="#">Remove</a>
-                            </td>
+                            <td><input type="text" value="" /></td>
+                            <td><input type="text" value="" /></td>
                         </tr>
-                        <tr>
-                            <td>
-                                <button type="button"> Add another link</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button type="button"> Cancel</button>
-                            </td>
-                            <td>
-                                <a href="index.html">
-                                    <button type="button"> Save Profile</button>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                    </tbody>
+                </table>
 
-                                <button type="button"> Edit Profile</button>
-
-                            </td>
-                            <td>
-                                <a href="index.html">
-                                    <button type="button"> Cancel Editting</button>
-                                </a>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-
-                </td>
-
-
-            </tr>
-        </tbody>
-    </table>
+                <button type="button">Add another link</button>
+                <br />
+                <button type="button">Cancel</button>
+                <a href="index.html"><button type="button">Save Profile</button></a>
+                <br />
+                <button type="button">Edit Profile</button>
+                <a href="index.html"><button type="button">Cancel Editing</button></a>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>

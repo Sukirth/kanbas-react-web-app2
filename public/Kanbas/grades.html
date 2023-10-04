@@ -4,125 +4,118 @@
 <head>
     <meta charset="UTF-8">
     <title>Grades</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
-</html>
-
-
 <body>
-    <table border="0" width="100%">
-        <tr valign="top">
-            <!--/* first column Kanbas Navigation */-->
-            <td>
-                <ul>
-                    <li><a href="profile/index.html">Account</a> </li>
-                    <li><a href="#">Dashboard</a> </li>
-                    <li><a href="courses.html">Courses</a> </li>
-                    <li><a href="#">Calendar</a> </li>
-                    <li><a href="#">Inbox</a> </li>
-                    <li><a href="#">History</a> </li>
-                    <li><a href="#">Studio</a> </li>
-                    <li><a href="#">Commons</a> </li>
-                    <li><a href="#">Help</a> </li>
-                </ul>
-            </td>
+    <div id="container">
 
-            <!--/* second column Course Navigation */-->
-            <td>
-                <ul>
-                    <li><a href="home.html">Home</a> </li>
-                    <li><a href="#">Modules</a> </li>
-                    <li><a href="#">Piazza</a> </li>
-                    <li><a href="#">Zoom Meetings</a> </li>
-                    <li><a href="assignments/index.html">Assignments</a> </li>
-                    <li><a href="#">Quizzes</a> </li>
-                    <li><a href="grades.html">Grades</a> </li>
-                    <li><a href="#">People</a> </li>
-                    <li><a href="#">Panopto Video</a> </li>
-                    <li><a href="#">Discussions</a> </li>
-                    <li><a href="#">Announcemtns</a> </li>
-                    <li><a href="#">Pages</a> </li>
-                    <li><a href="#">Files</a> </li>
-                    <li><a href="#">Rubrics</a> </li>
-                    <li><a href="#">Outcomes</a> </li>
-                    <li><a href="#">Collaborations</a> </li>
-                    <li><a href="#">Syllabus</a> </li>
-                    <li><a href="#">Settings</a> </li>
-                </ul>
-            </td>
+        <!-- First column Kanbas Navigation -->
+        <div id="column1">
+            <ul>
+                <li><a href="profile/index.html">Account</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="#">Calendar</a></li>
+                <li><a href="#">Inbox</a></li>
+                <li><a href="#">History</a></li>
+                <li><a href="#">Studio</a></li>
+                <li><a href="#">Commons</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </div>
 
-            <!--Grades-->
-            <td>
-                <select>
-                    <option value="GRADEBOOK">Gradebook</option>
-                </select>
-                <button type="button">Import</button>
-                <select>
-                    <option value="EXPORT">Export</option>
-                </select>
-                <button type="button">Import</button>
+        <!-- Second column Course Navigation -->
+        <div id="column2">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">Modules</a></li>
+                <li><a href="#">Piazza</a></li>
+                <li><a href="#">Zoom Meetings</a></li>
+                <li><a href="assignments/index.html">Assignments</a></li>
+                <li><a href="#">Quizzes</a></li>
+                <li><a href="grades.html">Grades</a></li>
+                <li><a href="#">People</a></li>
+                <li><a href="#">Panopto Video</a></li>
+                <li><a href="#">Discussions</a></li>
+                <li><a href="#">Announcemtns</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Files</a></li>
+                <li><a href="#">Rubrics</a></li>
+                <li><a href="#">Outcomes</a></li>
+                <li><a href="#">Collaborations</a></li>
+                <li><a href="#">Syllabus</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </div>
 
-                <h2>Student Names</h2>
-                <form id="text-fields">
-                    <input type="text" placeholder="Search Students" />
-                </form>
+        <!-- Grades -->
+        <div id="column3">
+            <select>
+                <option value="GRADEBOOK">Gradebook</option>
+            </select>
+            <button type="button">Import</button>
+            <select>
+                <option value="EXPORT">Export</option>
+            </select>
+            <button type="button">Import</button>
 
-                <h2>Assignment Names</h2>
-                <form id="text-fields">
-                    <input type="text" placeholder="Search Assignments" />
-                </form>
-                <br />
+            <h2>Student Names</h2>
+            <form id="text-fields">
+                <input type="text" placeholder="Search Students" />
+            </form>
 
-                <button type="button">Apply Filters</button> <br />
+            <h2>Assignment Names</h2>
+            <form id="text-fields">
+                <input type="text" placeholder="Search Assignments" />
+            </form>
+            <br />
 
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>Student Name</th>
-                            <th>A1 SETUP <br /> Out of 100</th>
-                            <th>A2 HTML <br /> Out of 100</th>
-                            <th>A3 CSS <br /> Out of 100</th>
-                            <th>A4 BOOTSTRAP <br /> Out of 100</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <button type="button">Apply Filters</button> <br />
 
-                        <tr>
-                            <td>Alidar Kuatbekov</td>
-                            <td>40</td>
-                            <td> <input type="number" value="90" /> </td>
-                            <td>99</td>
-                            <td>81</td>
-                        </tr>
-
-                        <tr>
-                            <td>Brooklyn Schmidt</td>
-                            <td>90</td>
-                            <td>91</td>
-                            <td> <input type="number" value="92" /> </td>
-                            <td>94</td>
-                        </tr>
-
-                        <tr>
-                            <td>Ryan Huang</td>
-                            <td> <input type="number" value="100" /> </td>
-                            <td>95</td>
-                            <td>85</td>
-                            <td>75</td>
-                        </tr>
-
-                        <tr>
-                            <td>Elliot Jerng</td>
-                            <td>99</td>
-                            <td>89</td>
-                            <td>70</td>
-                            <td> <input type="number" value="100" /> </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-            </td>
-        </tr>
-    </table>
+            <table id="grades-table">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>A1 SETUP <br /> Out of 100</th>
+                        <th>A2 HTML <br /> Out of 100</th>
+                        <th>A3 CSS <br /> Out of 100</th>
+                        <th>A4 BOOTSTRAP <br /> Out of 100</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alidar Kuatbekov</td>
+                        <td>40</td>
+                        <td> <input type="number" value="90" /> </td>
+                        <td>99</td>
+                        <td>81</td>
+                    </tr>
+                    <tr>
+                        <td>Brooklyn Schmidt</td>
+                        <td>90</td>
+                        <td>91</td>
+                        <td> <input type="number" value="92" /> </td>
+                        <td>94</td>
+                    </tr>
+                    <tr>
+                        <td>Ryan Huang</td>
+                        <td> <input type="number" value="100" /> </td>
+                        <td>95</td>
+                        <td>85</td>
+                        <td>75</td>
+                    </tr>
+                    <tr>
+                        <td>Elliot Jerng</td>
+                        <td>99</td>
+                        <td>89</td>
+                        <td>70</td>
+                        <td> <input type="number" value="100" /> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
+
+</html>
