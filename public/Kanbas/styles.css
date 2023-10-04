@@ -257,3 +257,45 @@
         #profile-column button {
             padding: 5px 10px;
         }
+
+
+
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .column {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .column li {
+            margin-bottom: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button[type="button"] {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button[type="button"]:hover {
+            background-color: #0056b3;
+        }
