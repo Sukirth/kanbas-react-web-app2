@@ -3,30 +3,30 @@
     background-color: black;
     text-align: center !important;
     height: 800px;
-  }
-  
-  .padding-fat {
+}
+
+.padding-fat {
     padding-right: -200px !important;
-  }
-  
-  .active {
+}
+
+.active {
     background-color: white;
     color: red;
     text-decoration: none;
-  }
-  
-  .white-link {
+}
+
+.white-link {
     color: white;
     text-decoration: none;
-  }
-  
-  .sidebar {
+}
+
+.sidebar {
     margin-left: 25px;
     width: 200px;
     display: block;
-  }
-  
-  .sidebar-item {
+}
+
+.sidebar-item {
     display: inline-block;
     margin-top: 10px;
     color: red;
@@ -36,9 +36,9 @@
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
-  }
-  
-  .sidebar-item-active {
+}
+
+.sidebar-item-active {
     display: inline-block;
     margin-top: 12px;
     outline-offset: 10px;
@@ -51,35 +51,35 @@
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
-  }
-  
-  .card {
+}
+
+.card {
     margin: 15px;
-  }
-  
-  .card-link {
+}
+
+.card-link {
     text-decoration: none;
-  }
-  
-  .module-item {
+}
+
+.module-item {
     padding-left: 50px;
     display: inline;
-  }
-  
-  .box {
+}
+
+.box {
     border-style: solid;
     border-color: grey;
     border-radius: 15px;
     margin-right: 15px;
-  }
-  
-  .black-link {
+}
+
+.black-link {
     text-decoration: none;
     color: black;
     font-weight: bold;
-  }
-  
-  .deadline {
+}
+
+.deadline {
     margin-left: 25px;
     display: inline-block;
-  }
+}
