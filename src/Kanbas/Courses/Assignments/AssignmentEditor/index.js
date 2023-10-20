@@ -1,35 +1,53 @@
-import React from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import db from "../../../Database";
+import { faCircleCheck, faEllipsisV } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
+import "./index.css";
 
 function AssignmentEditor() {
-  const { assignmentId, courseId } = useParams();
-  const params = useParams();
-  const assignment = db.assignments.find(
+  const { courseId } = useParams();
+  const { assignmentId } = useParams();
+  const navigate = useNavigate();
+  const assignments = db.assignments;
+  const assignment = assignments.find(
     (assignment) => assignment._id === assignmentId
   );
-
-  const navigate = useNavigate();
   const handleSave = () => {
-    console.log("Actually saving assignment TBD in later assignments");
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
+  
   return (
     <div>
-      <h2>Assignment Name</h2>
-      <pre>
-        <code>{JSON.stringify(params, null, 2)}</code>
-      </pre>
-      <input value={assignment.title} className="form-control mb-2" />
-      <Link
-        to={`/Kanbas/Courses/${courseId}/Assignments`}
-        className="btn btn-danger"
-      >
-        Cancel
-      </Link>
-      <button onClick={handleSave} className="btn btn-success me-2">
-        Save
-      </button>
+      <div className="float-end my-2">
+        <FontAwesomeIcon className="green" icon={faCircleCheck} />
+        <label className="green">Published</label>
+        <button className="btn btn-gray mx-3">
+          <FontAwesomeIcon icon={faEllipsisV}></FontAwesomeIcon>
+        </button>
+      </div>
+      <hr />
+      <div>
+        <label>Assignment Name</label>
+        <input
+          type="text"
+          className="form-control mb-2"
+          value={assignment.title}
+        />
+      </div>
+      <hr />
+      <div className="float-end my-2">
+        <Link
+          to={`/Kanbas/Courses/${courseId}/Assignments`}
+          className="btn btn-gray"
+        >
+          Cancel
+        </Link>
+        <button onClick={handleSave} className="btn btn-danger mx-1">
+          Save
+        </button>
+      </div>
+      <hr />
     </div>
   );
 }

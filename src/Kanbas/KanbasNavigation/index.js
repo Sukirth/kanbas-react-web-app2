@@ -1,35 +1,84 @@
 import { Link, useLocation } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBook,
+  faCalendar, 
+  faGauge, 
+  faUser,
+  faInbox,
+  faClock,
+  faTv,
+  faArrowRightFromBracket,
+  faQuestion,
+} from "@fortawesome/free-solid-svg-icons";
 import "./index.css";
-import { RiDashboard3Line } from "react-icons/ri";
-import { MdOutlineAccountCircle } from "react-icons/md";
-import { FaBook } from "react-icons/fa";
-import { BsCalendar2Week } from "react-icons/bs";
-function KanbasNavigation() {
-  const links = ["Account", "Dashboard", "Courses", "Calendar"];
-  const linksToIconsMap = {
-    Account: <MdOutlineAccountCircle className="fs-1 text" />,
-    Dashboard: <RiDashboard3Line className="fs-1 text" />,
-    Courses: <FaBook className="fs-1 text" />,
-    Calendar: <BsCalendar2Week className="fs-1 text" />,
-  };
+import Image from "../Images/neu.png";
 
+function KanbasNavigation() {
+
+  const links = [
+    "Account",
+    "Dashboard",
+    "Courses",
+    "Calendar",
+    "Inbox",
+    "History",
+    "Studio",
+    "Commons",
+    "Help",
+  ];
+  const icons = [
+    faUser,
+    faGauge,
+    faBook,
+    faCalendar,
+    faInbox,
+    faClock,
+    faTv,
+    faArrowRightFromBracket,
+    faQuestion,
+  ];
   const { pathname } = useLocation();
+
   return (
-    <div className="wd-kanbas-navigation list-group" style={{ width: 150 }}>
-      {links.map((link, index) => (
-        <Link
-          key={index}
-          to={`/Kanbas/${link}`}
-          className={`list-group-item text-center p-4 ${
-            pathname.includes(link) && "active"
-          }`}
-        >
-          {linksToIconsMap[link]}
-          <br />
-          {link}
-        </Link>
-      ))}
+    <div>
+      <nav className="pos-black-navbar navbar navbar-expand-lg">
+        <div className="fluid-container">
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav flex-column">
+              <img className="logo" src={Image} alt={"Northeastern"} />
+              {links.map((link, index) => (
+                <li className="nav-item">
+                  <Link
+                    key={index}
+                    to={
+                      link === "Courses"
+                        ? "/Kanbas/Courses/RS101/Home"
+                        : `/Kanbas/${link}`
+                    }
+                    className={`nav-link  ${
+                      pathname.includes(link) && "active"
+                    }`}
+                  >
+                    <FontAwesomeIcon
+                      className={`fa-icon ${
+                        link === "Account" &&
+                        !pathname.includes(link) &&
+                        "white-selected"
+                      }`}
+                      icon={icons[index]}
+                    />
+                    <br />
+                    <span>{link}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </nav>
     </div>
   );
 }
+
 export default KanbasNavigation;

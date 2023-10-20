@@ -1,11 +1,20 @@
 import { Link, useParams, useLocation } from "react-router-dom";
 import "./index.css";
+
 function CourseNavigation() {
-  const links = ["Home", "Modules", "Assignments", "Grades"];
+  const links = [
+    "Home",
+    "Modules",
+    "Piazza",
+    "Zoom Meetings",
+    "Assignments",
+    "Quizzes",
+    "Grades",
+  ];
   const { courseId } = useParams();
   const { pathname } = useLocation();
   return (
-    <div className="wd-course-navigation list-group" style={{ width: 150 }}>
+    <div className="list-group course-nav ms-4" style={{ width: 150 }}>
       {links.map((link, index) => (
         <Link
           key={index}

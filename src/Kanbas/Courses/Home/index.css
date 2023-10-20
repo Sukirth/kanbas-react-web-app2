@@ -1,0 +1,12 @@
+.x {
+  font-size: 12px;
+}
+
+.todo-list {
+  margin-top: 12px;
+}
+
+.todo-list .fa-circle {
+  display: inline-block;
+  color: red;
+}

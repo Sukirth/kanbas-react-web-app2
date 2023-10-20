@@ -1,8 +1,9 @@
 import db from "../../Kanbas/Database";
-import { useParams } from "react-router-dom";
+import { Link, Navigate, Route, Routes, useParams } from "react-router-dom";
+import { HiOutlineBars3 } from "react-icons/hi2";
 import CourseNavigation from "./CourseNavigation";
-import { Routes, Route, Navigate } from "react-router-dom";
 import Modules from "./Modules";
+import "./index.css";
 import Home from "./Home";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
@@ -11,18 +12,30 @@ function Courses() {
   const { courseId } = useParams();
   const course = db.courses.find((course) => course._id === courseId);
   return (
-    <div>
-      <h1>Course {course.name}</h1>
-      <CourseNavigation />
-
-      <div>
-        <div
-          className="overflow-y-scroll position-fixed bottom-0 end-0"
-          style={{
-            left: "320px",
-            top: "50px",
-          }}
-        >
+    <div className="courses">
+      <div className="row mt-3 ms-0">
+        <HiOutlineBars3 className="text icon col-1" size="40" />
+        <nav aria-label="breadcrumb" className="mb-0 col-9">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <Link
+                key={course._id}
+                to={`/Kanbas/Courses/${course._id}`}
+                className="breadcrumb-link"
+              >
+                {course.number}.{course._id}
+              </Link>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Home
+            </li>{" "}
+          </ol>
+        </nav>
+      </div>
+      <hr className="mt-2 ms-4" />
+      <div className="row mt-4 ms-1">
+        <CourseNavigation className="col-3" />
+        <div className="col-9">
           <Routes>
             <Route path="/" element={<Navigate to="Home" />} />
             <Route path="Home" element={<Home />} />
@@ -39,4 +52,5 @@ function Courses() {
     </div>
   );
 }
+
 export default Courses;
