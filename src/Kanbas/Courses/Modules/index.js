@@ -1,14 +1,16 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import ModuleList from "./ModuleList";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleCheck,
   faEllipsisV,
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
+
 import "./index.css";
 
 function Modules() {
-  
   return (
     <div>
       <div>
@@ -30,14 +32,14 @@ function Modules() {
             </button>
             <ul className="dropdown-menu">
               <li>
-                <button className="dropdown-item" onClick={() => console.log("Publish All clicked")}>
+                <a className="dropdown-item" href="#">
                   Publish All
-                </button>
+                </a>
               </li>
               <li>
-                <button className="dropdown-item" onClick={() => console.log("Delete All clicked")}>
+                <a className="dropdown-item" href="#">
                   Delete All
-                </button>
+                </a>
               </li>
             </ul>
           </div>
