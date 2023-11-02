@@ -7,7 +7,7 @@ import { useState } from "react";
 import store from "./store";
 import { Provider } from "react-redux";
 
-import "./KanbasNavigation/index.js"; // optionally import CSS files as needed
+import "./KanbasNavigation/index.js"; 
 
 function Kanbas() {
   const [courses, setCourses] = useState(db.courses);
