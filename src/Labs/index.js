@@ -1,15 +1,13 @@
-/* eslint-disable no-unused-vars */
-import Assignment3 from "./a3";
-import { Link } from "react-router-dom";
-import Nav from "../Nav";
-
+import store from "./store";
+import { Provider } from "react-redux";
 function Labs() {
   return (
-    <div className="container">
-      <Nav />
-      <Assignment3 />
-    </div>
+    <Provider store={store}>
+      <div className="container">
+        <h1>Labs</h1>
+        ...
+      </div>
+    </Provider>
   );
 }
-
 export default Labs;
