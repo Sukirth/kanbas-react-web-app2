@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom";
 import db from "../Database";
-import "./dashboard.css";
+import "./index.css";
 import { React, useState } from "react";
 
 function Dashboard({
@@ -52,7 +52,7 @@ function Dashboard({
         {courses.map((course) => (
           <div className="card , course-card" style={{ width: "290px" }}>
             <img
-              src={require("../images/pink.jpeg")}
+              src={require("../Images/blue.png")}
               className="card-img-top"
               alt="..."
             ></img>
