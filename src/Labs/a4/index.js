@@ -1,5 +1,5 @@
 import React from "react";
-import ReduxExamples from "./redux-examples";
+import ReduxExamples from "./ReduxExamples";
 
 const Assignment4 = () => {
  return(
