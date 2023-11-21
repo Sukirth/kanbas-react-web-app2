@@ -1,25 +1,14 @@
-/* eslint-disable no-unused-vars */
-import Kanbas from "./Kanbas";
-import Labs from "./Labs";
-import HelloWorld from "./Labs/a3/HelloWorld";
-import logo from "./logo.svg";
-// import "./App.css";
-import { HashRouter } from "react-router-dom";
-import { Routes, Route, Navigate } from "react-router";
-function App() {
-  return (
-    <HashRouter>
-      <div>
-        <Routes>
-          <Route path="/" element={<Navigate to="/Labs" />} />
+import express from "express";
+import Lab5 from "./lab5.js";
+import CourseRoutes from "./Courses/routes.js";
+import ModuleRoutes from "./Modules/routes.js";
+import cors from "cors";
+const app = express();
+app.use(cors());
+app.use(express.json());
+ModuleRoutes(app);
+CourseRoutes(app);
+Lab5(app);
 
-          <Route path="/hello" element={<HelloWorld />} />
-          <Route path="/Labs/*" element={<Labs />} />
-          <Route path="/Kanbas/*" element={<Kanbas />} />
-        </Routes>
-      </div>
-    </HashRouter>
-  );
-}
 
-export default App;
+app.listen(process.env.PORT || 4000);

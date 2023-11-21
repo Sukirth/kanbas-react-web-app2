@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -9,16 +11,51 @@ import {
   addModule,
   deleteModule,
   updateModule,
-  setModule,
+  setModules,
 } from "./modulesReducer";
+import { findModulesForCourse, createModule } from "./client";
 function ModuleList() {
   const { courseId } = useParams();
+  useEffect(() => {
+    findModulesForCourse(courseId)
+      .then((modules) =>
+        dispatch(setModules(modules))
+    );
+  }, [courseId]);
+
+ const handleAddModule = () => {
+    createModule(courseId, module).then((module) => {
+      dispatch(addModule(module));
+    });
+  };
+  const handleUpdateModule = async () => {
+    const status = await client.updateModule(module);
+    dispatch(updateModule(module));
+  };
+
+
+ const handleDeleteModule = (moduleId) => {
+    client.deleteModule(moduleId).then((status) => {
+      dispatch(deleteModule(moduleId));
+    });
+  };
+
   const modules = useSelector((state) => state.modulesReducer.modules);
   const module = useSelector((state) => state.modulesReducer.module);
   const dispatch = useDispatch();
   return (
     <ul className="list-group">
       <li className="list-group-item">
+
+ <button
+              onClick={() => handleDeleteModule(module._id)}
+            >
+              Delete
+            </button>
+       <button
+          onClick={handleAddModule}>
+          Add
+        </button>
         <button
           className="btn btn-success"
           onClick={() => dispatch(addModule({ ...module, course: courseId }))}
@@ -34,13 +71,13 @@ function ModuleList() {
         <input
           value={module.name}
           onChange={(e) =>
-            dispatch(setModule({ ...module, name: e.target.value }))
+            dispatch(setModules({ ...module, name: e.target.value }))
           }
         />
         <textarea
           value={module.description}
           onChange={(e) =>
-            dispatch(setModule({ ...module, description: e.target.value }))
+            dispatch(setModules({ ...module, description: e.target.value }))
           }
         />
       </li>
@@ -53,7 +90,7 @@ function ModuleList() {
             <div class="float-end">
               <button
                 className="btn btn-success"
-                onClick={() => dispatch(setModule(module))}
+                onClick={() => dispatch(setModules(module))}
               >
                 Edit
               </button>
