@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import db from "../../Kanbas/Database";
 import { Navigate, Route, Routes, useParams } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";

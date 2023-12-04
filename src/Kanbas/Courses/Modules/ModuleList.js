@@ -1,3 +1,5 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import db from "../../Database";
@@ -21,7 +23,7 @@ function ModuleList() {
           .then((modules) =>
             dispatch(setModules(modules))
         );
-      }, [courseId]);    
+      }, [courseId, dispatch]);    
     const modules = useSelector((state) => state.modulesReducer.modules);
     const module = useSelector((state) => state.modulesReducer.module);
     const dispatch = useDispatch();

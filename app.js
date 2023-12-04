@@ -9,3 +9,5 @@ app.use(express.json());
 Lab5(app);
 app.listen(4000);
 
+
+export default app;

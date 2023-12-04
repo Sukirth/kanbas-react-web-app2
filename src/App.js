@@ -10,5 +10,6 @@ ModuleRoutes(app);
 CourseRoutes(app);
 Lab5(app);
 
-
 app.listen(process.env.PORT || 4000);
+
+export default app;
