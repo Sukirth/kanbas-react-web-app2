@@ -1,111 +1,176 @@
-/* eslint-disable no-undef */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { VscGripper } from "react-icons/vsc";
-import { BiCaretDown } from "react-icons/bi";
-
+import db from "../../Database";
+import "./ModuleList.css";
+import { BsCheckCircle, BsGripVertical, BsPlusLg, BsThreeDotsVertical } from "react-icons/bs";
 import {
-  addModule,
-  deleteModule,
-  updateModule,
-  setModules,
-} from "./modulesReducer";
-import { findModulesForCourse, createModule } from "./client";
+    AiFillCaretDown,
+    AiFillCaretRight,
+    AiFillCheckCircle,
+    AiOutlinePlus,
+} from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { addModule, deleteModule, setModule, setModules, updateModule } from "./modulesReducer";
+import { createModule, findModulesForCourse } from "./client";
+import * as client from "./client";
+
 function ModuleList() {
-  const { courseId } = useParams();
-  useEffect(() => {
-    findModulesForCourse(courseId)
-      .then((modules) =>
-        dispatch(setModules(modules))
-    );
-  }, [courseId]);
+    const { courseId } = useParams();
+    useEffect(() => {
+        findModulesForCourse(courseId)
+          .then((modules) =>
+            dispatch(setModules(modules))
+        );
+      }, [courseId]);    
+    const modules = useSelector((state) => state.modulesReducer.modules);
+    const module = useSelector((state) => state.modulesReducer.module);
+    const dispatch = useDispatch();
 
- const handleAddModule = () => {
-    createModule(courseId, module).then((module) => {
-      dispatch(addModule(module));
-    });
-  };
-  const handleUpdateModule = async () => {
-    const status = await client.updateModule(module);
-    dispatch(updateModule(module));
-  };
-
-
- const handleDeleteModule = (moduleId) => {
-    client.deleteModule(moduleId).then((status) => {
-      dispatch(deleteModule(moduleId));
-    });
-  };
-
-  const modules = useSelector((state) => state.modulesReducer.modules);
-  const module = useSelector((state) => state.modulesReducer.module);
-  const dispatch = useDispatch();
-  return (
-    <ul className="list-group">
-      <li className="list-group-item">
-
- <button
-              onClick={() => handleDeleteModule(module._id)}
-            >
-              Delete
-            </button>
-       <button
-          onClick={handleAddModule}>
-          Add
-        </button>
-        <button
-          className="btn btn-success"
-          onClick={() => dispatch(addModule({ ...module, course: courseId }))}
-        >
-          Add
-        </button>
-        <button
-          className="btn btn-primary"
-          onClick={() => dispatch(updateModule(module))}
-        >
-          Update
-        </button>
-        <input
-          value={module.name}
-          onChange={(e) =>
-            dispatch(setModules({ ...module, name: e.target.value }))
-          }
-        />
-        <textarea
-          value={module.description}
-          onChange={(e) =>
-            dispatch(setModules({ ...module, description: e.target.value }))
-          }
-        />
-      </li>
-      {modules
-        .filter((module) => module.course === courseId)
-        .map((module, index) => (
-          <li key={index} className="list-group-item">
-            <VscGripper size="20" />
-            <BiCaretDown size="10" />
-            <div class="float-end">
-              <button
-                className="btn btn-success"
-                onClick={() => dispatch(setModules(module))}
-              >
-                Edit
-              </button>
-              <button
-                className="btn btn-danger"
-                onClick={() => dispatch(deleteModule(module._id))}
-              >
-                Delete
-              </button>
+    const handleAddModule = () => {
+        createModule(courseId, module).then((module) => {
+          dispatch(addModule(module));
+        });
+    };
+    const handleDeleteModule = (moduleId) => {
+        client.deleteModule(moduleId).then((status) => {
+          dispatch(deleteModule(moduleId));
+        });
+    };
+    
+    const handleUpdateModule = async () => {
+        const status = await client.updateModule(module);
+        dispatch(updateModule(module));
+    };
+    
+    
+    return (
+        <div className="module-list-container">
+            <div className="course-buttons float-end">
+                <div className="btn-toolbar">
+                    <div className="btn btn-light border">Collapse All</div>
+                    <div className="btn btn-light border">View Progress</div>
+                    <div className="dropdown">
+                        <button
+                            className="btn btn-light border dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            <BsCheckCircle className="publish-icon" />
+                            Publish All
+                        </button>
+                    </div>
+                    <div className="btn btn-danger border">
+                        <BsPlusLg />
+                        Modules
+                    </div>
+                    <div className="btn btn-light border">
+                        <BsThreeDotsVertical />
+                    </div>
+                </div>
             </div>
-            <h3>{module.name}</h3>
-            <p>{module.description}</p>
-          </li>
-        ))}
-    </ul>
-  );
+            <br />
+            <br />
+            <hr />
+
+            <ul className="list-group modules-list">
+                <li className="list-group-item">
+                    <h5>
+                        Module
+                    </h5>
+                    <form>
+                        <div className="form-group">
+                            <input
+                                className="form-control"
+                                value={module.name}
+                                onChange={(e) =>
+                                    dispatch(
+                                        setModule({
+                                            ...module,
+                                            name: e.target.value,
+                                        })
+                                    )
+                                }
+                            />
+                            <textarea
+                                className="form-control mt-2"
+                                value={module.description}
+                                onChange={(e) =>
+                                    dispatch(
+                                        setModule({
+                                            ...module,
+                                            description: e.target.value,
+                                        })
+                                    )
+                                }
+                            />
+                            <div className="mt-2">
+                                <button
+                                    className="btn btn-light border-dark mx-1 btn-sm"
+                                    // onClick={() =>
+                                    //     dispatch(addModule({ ...module, course: courseId }))
+                                    // }
+                                    onClick={handleAddModule}
+                                >
+                                    Add
+                                </button>
+                                <button
+                                    className="btn btn-light border-dark mx-1 btn-sm"
+                                    // onClick={() => dispatch(updateModule(module))}
+                                    onClick={() => handleUpdateModule()}
+                                >
+                                    Update
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+
+                {modules
+                    .filter((module) => module.course === courseId)
+                    .map((module, index) => (
+                        <li
+                            key={index}
+                            className="list-group-item border list-group-item-light rounded-0"
+                        >
+                            <div className="module-list-content">
+                                <div>
+                                    <BsGripVertical size={24} />
+                                    <AiFillCaretRight size={24} />
+                                    <span>
+                                        {module.name} - {module.description}
+                                    </span>
+                                </div>
+                                <div style={{ flexGrow: 1 }}>
+                                    <div className="float-end">
+                                        <button 
+                                            className="btn btn-light border-dark btn-sm"
+                                            // onClick={() => dispatch(setModule(module))}>
+                                            onClick={() => {handleUpdateModule();
+                                                        dispatch(setModule(module));}}>
+                                            Edit
+                                        </button>
+                                        <button 
+                                            className="btn btn-light border-dark btn-sm mx-2"
+                                            //onClick={() => dispatch(deleteModule(module._id))}>
+                                             onClick={() => handleDeleteModule(module._id)}>
+                                             
+                                            Delete
+                                        </button>
+
+                                        <AiFillCheckCircle className="module-list-icon-check" />
+                                        <AiFillCaretDown />
+                                        <span className="mx-3">
+                                            <AiOutlinePlus />
+                                        </span>
+                                        <BsThreeDotsVertical />
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    ))}
+            </ul>
+        </div>
+    );
 }
 export default ModuleList;
