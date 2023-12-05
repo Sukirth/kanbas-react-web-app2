@@ -1,89 +1,58 @@
-@media (max-width: 767px) {
-  .pos-black-navbar {
-    height: 60px; /* Set a different height for screens smaller than "sm" */
-  }
+.sidebar {
+    background-color: black;
+    width: 85px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: static;
 }
 
-@media screen and (min-width: 580px) {
-  .home-main-content {
-    margin-left: 12px;
-  }
+.sidebar ul {
+    padding-left: 0;
 }
 
-.pos-black-navbar {
-  position: fixed;
-  padding: 5px;
-  background-color: black;
-  height: 100%;
+.sidebar li {
+    text-align: center;
+    margin-bottom: 7px;
+    width: 100%;
 }
 
-.pos-black-navbar .nav-link:hover {
-  background-color: white;
-  color: red !important;
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+
 }
 
-.pos-black-navbar .nav-item {
-  margin: 10px;
+.sidebar .inactive-link {
+    background-color: black;
+    color: darkred;
+    width: 100%;
 }
 
-.pos-black-navbar .nav-link {
-  padding: 10px;
-  color: white;
-  display: block;
-  text-align: center;
+.sidebar .active-link {
+    background-color: white;
+    color: darkred;
+    width: 100%;
 }
 
-.pos-black-navbar .nav-link.active {
-  background-color: white !important;
-  color: red !important;
+.neu-logo {
+    width: 80px;
+    height: 80px;
 }
 
-.pos-black-navbar .fa-icon {
-  text-align: center;
-  font-size: 30px;
-  color: red;
+/* .redlinks {
+    color: darkred;
+    text-decoration: none;
 }
 
-.pos-black-navbar .white-selected {
-  color: white;
-}
-
-.pos-black-navbar .no-border {
-  border: none;
-  width: 200px;
-}
-
-.active {
-  background-color: white;
-  color: red;
-}
-
-.active-item .nav-link {
-  color: black;
-  padding: 5px;
-  border-left: 3px solid black;
-}
-
-.btn-gray {
-  background-color: white;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: red;
-}
-
-.list-group-item .nav-link .fa-icon {
-  margin-left: 10px;
-  color: black;
-  float: right;
-}
-
-.logo {
-  height: 5rem;
-  margin: 0 auto;
-}
-
-.fa-solid {
-  align-items: center;
-}
+.blacklinks {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+} */
