@@ -5,7 +5,7 @@ import { Navigate, Route, Routes, useParams } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import CourseNavigation from "./CourseNavigation";
 import Modules from "./Modules";
-import "./courses.css";
+import "./index.css";
 import Home from "./Home";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
