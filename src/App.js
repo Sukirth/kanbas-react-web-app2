@@ -1,15 +1,21 @@
-import express from "express";
-import Lab5 from './Lab5.js';
-import CourseRoutes from "./Kanbas/Courses/routes.js";
-import ModuleRoutes from "./Kanbas/Courses/Modules/routes.js";
-import cors from "cors";
-const app = express();
-app.use(cors());
-app.use(express.json());
-ModuleRoutes(app);
-CourseRoutes(app);
-Lab5(app);
+import Labs from "./Labs";
+import HelloWorld from "./Labs/a3/HelloWorld";
+import Kanbas from "./Kanbas";
+import { HashRouter } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router";
 
-app.listen(process.env.PORT || 4000);
-
-export default app;
+function App() {
+  return (
+    <HashRouter>
+      <div>
+        <Routes>
+          <Route path="/" element={<Navigate to="/Labs" />} />
+          <Route path="/hello" element={<HelloWorld />} />
+          <Route path="/Labs/*" element={<Labs />} />
+          <Route path="/Kanbas/*" element={<Kanbas />} />
+        </Routes>
+      </div>
+    </HashRouter>
+  );
+}
+export default App;
