@@ -1,21 +1,22 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import db from "../../Kanbas/Database";
 import { Navigate, Route, Routes, useParams } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import CourseNavigation from "./CourseNavigation";
 import Modules from "./Modules";
-import "./index.css";
+import "./courses.css";
 import Home from "./Home";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const API_BASE = process.env.REACT_APP_API_BASE;
+const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:4000/api";
 
 function Courses() {
     const { courseId } = useParams();
-    const URL = "http://localhost:4000/api/courses";
+    const URL = `${API_BASE}/courses`;
     const [course, setCourse] = useState({});
     const findCourseById = async (courseId) => {
         const response = await axios.get(
