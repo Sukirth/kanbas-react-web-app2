@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import db from "../../Database";
-import "./modulelist.css";
+import "./moduleList.css";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { BsPlus } from "react-icons/bs";
