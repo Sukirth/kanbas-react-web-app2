@@ -1,44 +1,74 @@
-.assignments a {
-  color: black;
+.assignments-page {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 20px;
 }
 
-.assignment-each {
-  margin-left: -2rem;
+.assignments-header button {
+    margin-right: 5px;
 }
 
-.assignments {
-  border-left: solid thick green;
+.search-assignment {
+    margin-right: 495px;
 }
 
-.assignment-small {
-  font-size: 15px;
+.buttons-assignments-top {
+    display: flex;
+    margin-bottom: 10px;
 }
 
-.assignments-top {
-  background-color: lightgrey;
-  border: 0.1px solid black;
+.mr-5 {
+    margin-right: 5px;
 }
 
-.assignment-border {
-  border-bottom: 0.2px solid gray;
+.arrow-assignments {
+    padding: 5px;
 }
 
-input {
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid whitesmoke;
+.btns-assignment i {
+    padding: 8px;
 }
 
-.assignment-fa-circle-check {
-  color: green;
-  margin-right: 25px;
+.wd-text-color-black {
+    color: black;
 }
 
-.assignments .fa-book {
-  color: green;
-  margin-left: 20px;
+.border-green-left {
+    border-left: 4px solid green;
+}
+
+.assignment-item p {
+    font-size: 0.8em;
+    padding-right: 300px;
+}
+
+.assignment-item {
+    border-left: 2px solid green;
+}
+
+.assignment-title {
+    font-weight: 500;
+    padding: 10px;
+}
+
+.assignment-title-group {
+    margin-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.check-assignment {
+    margin-right: 30px;
+}
+
+.student-view {
+    position: absolute;
+    margin-left: 5px;
+    top: -30px;
+    right: 40px;
+    z-index: 9999;
+}
+
+.assignment-details {
+    margin-left: 25px;
 }

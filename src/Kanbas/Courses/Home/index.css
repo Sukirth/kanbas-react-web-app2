@@ -1,12 +1,49 @@
-.x {
-  font-size: 12px;
+.sub-nav {
+    width: 190px;
+    position: relative;
+    top: 20px;
 }
 
-.todo-list {
-  margin-top: 12px;
+.sub-nav a {
+    text-decoration: none;
 }
 
-.todo-list .fa-circle {
-  display: inline-block;
-  color: red;
+.sub-nav ul {
+    list-style: none;
+}
+
+.sub-nav li {
+    margin-bottom: 13px;
+    text-align: left;
+}
+
+.sub-nav .unselected {
+    color: darkred;
+}
+
+.sub-nav .selected {
+    color: black;
+    padding: 4px;
+    border-left: 2px solid black;
+}
+
+.mgn-lft-3 {
+    margin-left: 3px;
+}
+
+.mgn-lft-15 {
+    margin-left: 15px;
+}
+
+.redlinks {
+    color: darkred;
+    text-decoration: none;
+}
+
+.view-calendar {
+    margin-top: 5px;
+}
+
+.mr-5px {
+    margin-right: 5px;
 }

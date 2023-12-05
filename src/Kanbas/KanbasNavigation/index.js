@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import './index.css';
-import findicon from "./findicon";
+import findicon from "./icon";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import neu_logo from "../../Images/neu.png"
+import neu_logo from "../Images/neu.png"
 
 function KanbasNavigation() {
   const links = ["Account", "Dashboard", "Courses", "Calendar", "Inbox", "History", "Studio", "Commons", "Help"];

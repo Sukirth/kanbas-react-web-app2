@@ -1,0 +1,57 @@
+.home-modules ul {
+    border-radius: 0%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.module-title{
+    font-weight: bold;
+}
+
+.module-title {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Roboto', sans-serif;
+}
+
+.complete-modules li {
+    border-left: 4px solid green;
+}
+
+.module-name {
+    margin-left: 10px;
+    padding-right: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.module-description li {
+    padding-left: 80px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-left: 4px solid green;
+    font-weight: bold;
+}
+
+.edit-module-box {
+    margin-top: 5px;
+}
+
+.edit-module-box input {
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+
+.edit-module-box input, textarea {
+    border-radius: 5px;
+    width: 100%;
+}
+
+.add-update-btns button{
+    margin-right: 5px;
+}
+
+.edit-delete-btns button {
+    margin-right: 5px;
+}

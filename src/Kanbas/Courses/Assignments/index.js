@@ -1,89 +1,86 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import db from "../../Database";
-import {
-  faBook,
-  faCircleCheck,
-  faEllipsisV,
-  faPlus,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./index.css";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { AiOutlinePlus } from "react-icons/ai";
+import { AiFillFile } from "react-icons/ai";
+import { BsCheckCircleFill } from "react-icons/bs";
+import { FaPencilAlt } from "react-icons/fa";
 
 function Assignments() {
-  const { courseId } = useParams();
-  const assignments = db.assignments;
-  const courseAssignments = assignments.filter(
-    (assignment) => assignment.course === courseId
-  );
+    const { courseId } = useParams();
+    const assignments = db.assignments;
+    const courseAssignments = assignments.filter(
+        (assignment) => assignment.course === courseId);
+    return (
+        <div className="assignments-page">
 
-  return (
-    <div style={{ width: "90%" }}>
-      <div>
-        <input type="text" placeholder="Search for Assignment" />
-        <div className="float-end">
-          <button className="btn btn-gray mx-1">+Group</button>
-          <button className="btn btn-danger">+ Assignment</button>
-          <button className="btn btn-gray mx-1">
-            <FontAwesomeIcon icon={faEllipsisV}></FontAwesomeIcon>
-          </button>
-        </div>
-      </div>
-      <hr />
-      <div className="p-4 assignments-top">
-        <div style={{ display: "inline" }}>
-          <span>&#8286;</span>
-          <span>&#8286;</span>
-          <span className="mx-3">&#9660;</span>
-          <span>
-            <b>ASSIGNMENTS</b>
-          </span>
-        </div>
-        <div className="mb-1 float-end">
-          <btn className="btn">40% of Total</btn>
-          <FontAwesomeIcon className="mx-2" icon={faPlus} />
-          <FontAwesomeIcon className="mx-3" icon={faEllipsisV} />
-        </div>
-      </div>
-      <div className="assignments">
-        <ul className="list-group">
-          {courseAssignments.map((assignment) => (
-            <div className="list-group-item assignment-border">
-              <div className="row">
-                <div className="col-1 mt-4">
-                  <span>&#8286;</span>
-                  <span>&#8286;</span>
-                  <FontAwesomeIcon className="fa-book ml-1" icon={faBook} />
+            {/* Assignments Header and Buttons */}
+            <div className="row assignments-header flex-grow">
+                <div className="input-group col mb-3 search-assignment">
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Search for Assignments"
+                    />
                 </div>
-                <div className="col-9 assignment-each">
-                  <Link
-                    key={assignment._id}
-                    to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
-                    className="list-group-item"
-                  >
-                    <b>{assignment.title}</b>
-                    <br />
-                    <span className="assignment-small">
-                      <span style={{ color: "red" }}>Multiple Modules</span>
-                      &nbsp;|&nbsp;
-                      <strong>Due</strong> Nov 12, 29 at 11:59pm | 100 pts
-                    </span>
-                  </Link>
+                <div className="col buttons-assignments-top">
+                    <button type="button" className="btn btn-light float-end">
+                        <AiOutlinePlus className="mr-5" />
+                        Group
+                    </button>
+                    <button type="button" className="btn btn-danger float-end">
+                        <AiOutlinePlus className="mr-5" />
+                        Assignment
+                    </button>
+                    <button type="button" className="btn btn-light float-end">
+                        <BsThreeDotsVertical />
+                    </button>
                 </div>
-                <div className="col-2 text-end mt-4">
-                  <FontAwesomeIcon
-                    className="assignment-fa-circle-check"
-                    icon={faCircleCheck}
-                  />
-                  <FontAwesomeIcon icon={faEllipsisV} />
-                </div>
-              </div>
+                <hr />
             </div>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-}
 
+            {/* Assignments */}
+            <div className="assignments-table">
+                <div className="list-group">
+                    <li className="list-group-item d-flex justify-content-between align-items-center list-group-item-secondary"
+                        style={{ fontWeight: "bold" }}>
+                        ASSIGNMENTS
+                        <div className="btns-assignment">
+                            <span className="badge rounded-pill">
+                                <div style={{ color: "black" }}>40% of Total</div>
+                            </span>
+                            <span>
+                                <AiOutlinePlus />
+                            </span>
+                            <span>
+                                <BsThreeDotsVertical />
+                            </span>
+                        </div>
+                    </li>
+                    <div className="border-green-left">
+                        {courseAssignments.map((assignment) => (
+                            <Link
+                                key={assignment._id}
+                                to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
+                                className="list-group-item d-flex justify-content-between align-items-center assignment-item"
+                            >
+                                <div className="assignment-title-group">
+                                    <FaPencilAlt style={{ color: 'green' }} />
+                                    <span className="assignment-title">{assignment.title}</span> <br />
+                                    <div className="assignment-details">
+                                        <span style={{ color: "darkred" }}>Multiple Modules</span>{" "}
+                                        | Due Sep 18 at 11:59pm | 100 pts
+                                    </div>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
 export default Assignments;

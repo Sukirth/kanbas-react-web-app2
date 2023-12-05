@@ -1,55 +1,57 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
-import db from "../../../Database";
-import { faCircleCheck, faEllipsisV } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useNavigate, useParams, Link } from "react-router-dom";
+import db from "../../../Database";
 import "./index.css";
+import { BsCheckCircleFill } from "react-icons/bs";
+import { BsThreeDotsVertical } from "react-icons/bs";
+
 
 function AssignmentEditor() {
-  const { courseId } = useParams();
-  const { assignmentId } = useParams();
-  const navigate = useNavigate();
-  const assignments = db.assignments;
-  const assignment = assignments.find(
-    (assignment) => assignment._id === assignmentId
-  );
-  const handleSave = () => {
-    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-  };
-  
-  return (
-    <div>
-      <div className="float-end my-2">
-        <FontAwesomeIcon className="green" icon={faCircleCheck} />
-        <label className="green">Published</label>
-        <button className="btn btn-gray mx-3">
-          <FontAwesomeIcon icon={faEllipsisV}></FontAwesomeIcon>
-        </button>
-      </div>
-      <hr />
-      <div>
-        <label>Assignment Name</label>
-        <input
-          type="text"
-          className="form-control mb-2"
-          value={assignment.title}
-        />
-      </div>
-      <hr />
-      <div className="float-end my-2">
-        <Link
-          to={`/Kanbas/Courses/${courseId}/Assignments`}
-          className="btn btn-gray"
-        >
-          Cancel
-        </Link>
-        <button onClick={handleSave} className="btn btn-danger mx-1">
-          Save
-        </button>
-      </div>
-      <hr />
-    </div>
-  );
+    const { assignmentId } = useParams();
+    const assignment = db.assignments.find(
+        (assignment) => assignment._id === assignmentId);
+
+
+    const { courseId } = useParams();
+    const navigate = useNavigate();
+    const handleSave = () => {
+        console.log("Actually saving assignment TBD in later assignments");
+        navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+    };
+
+    return (
+        <div>
+            <div className="float-end">
+                <button className="btn">
+                    <BsCheckCircleFill className="published-icon" />
+                    <span className="published">Published</span>
+                </button>
+                <button className="btn btn-light">
+                    <BsThreeDotsVertical />
+                </button>
+            </div>
+
+            <br />
+            <br />
+            <hr />
+
+            <span className="assignment-name">Assignment Name</span>
+            <input value={assignment.title} className="form-control mb-2 assignment-name-input" />
+            <hr />
+            <div className="float-end">
+                <Link
+                    to={`/Kanbas/Courses/${courseId}/Assignments`}
+                    className="btn btn-light"
+                >
+                    Cancel
+                </Link>
+                <button onClick={handleSave} className="btn btn-danger me-2">
+                    Save
+                </button>
+            </div>
+        </div>
+    );
 }
+
 
 export default AssignmentEditor;
