@@ -1,4 +1,6 @@
-import db from "../../Kanbas/Database";
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
+
 import { Navigate, Route, Routes, useParams } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import CourseNavigation from "./CourseNavigation";

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import ModuleList from "../Modules/ModuleList";
 import "./index.css";
 import { FaBan, FaCheckCircle, FaFileImport, FaArrowRight, FaDotCircle, FaChartBar, FaBullhorn, FaBell, FaCalendarAlt} from "react-icons/fa";

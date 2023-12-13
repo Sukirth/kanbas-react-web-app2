@@ -1,6 +1,6 @@
 import { Link, useParams, useLocation } from "react-router-dom";
 import "./index.css";
-import { FaBars } from "react-icons/fa";
+
 import { IoIosArrowForward } from "react-icons/io";
 
 function CourseNavigation() {
