@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { Link, useParams, useLocation } from "react-router-dom";
 import "./index.css";
 import { FaBars } from "react-icons/fa";

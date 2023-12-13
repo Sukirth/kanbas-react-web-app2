@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { BsFillCheckCircleFill, BsPencil, BsPlusCircleFill, BsTrash3Fill }
     from "react-icons/bs";

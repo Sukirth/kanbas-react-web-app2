@@ -1,9 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-unused-vars */
 import KanbasNavigation from "./KanbasNavigation";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
-import Courses from "./Courses";
+import Courses from "./Courses/Home";
 import db from "./Database";
 import { useEffect, useState } from "react";
 import store from "./store";
@@ -68,6 +66,8 @@ function Kanbas() {
 
           <div className="col">
             <Routes>
+            <Route path="Account" element={<Account />} />
+
               <Route path="/" element={<Navigate to="Dashboard" />} /> {/*Navigates to dashboard*/}
               <Route path="Account" element={<Account />} /> {/* Navigates to account when signed in*/}
               <Route path="/account/:id" element={<Account />} /> {/* Navigates to specific user's account */}
@@ -79,7 +79,7 @@ function Kanbas() {
                   addNewCourse={addNewCourse}
                   deleteCourse={deleteCourse}
                   updateCourse={updateCourse} />} /> 
-              <Route path="Courses/:courseId/*" element={<Courses courses={courses} />} /> {/* Navigates to specific course*/}
+              <Route path="/Courses*" element={<Courses  />} /> {/* Navigates to specific course*/}
               <Route path="/signin" element={<Signin />} /> {/* Navigates to sign in screen*/}
               <Route path="/admin/users" element={<UserTable />} /> {/* Navigates to list of users*/}
               <Route path="/signup" element={<Signup />} /> {/* Navigates to sign up screen*/}

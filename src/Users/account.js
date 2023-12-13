@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react-hooks/exhaustive-deps */
-import * as client from "./client.js";
+import * as client from "./client";
 import { useState, useEffect } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import Signup from "./signup";
@@ -25,7 +23,7 @@ function Account() {
 
   const signout = async () => {
     await client.signout();
-    navigate("/project/signin");
+    navigate("/signin");
   };
 
 
