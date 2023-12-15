@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import store from "./store";
 import { Provider } from "react-redux";
 import axios from "axios";
-import Signin from "../users/signin";
+/*import Signin from "../users/signin"; */
 import Account from "../users/account";
 import UserTable from "../users/table";
 import Signup from "../users/signup";
@@ -82,7 +82,7 @@ function Kanbas() {
                   deleteCourse={deleteCourse}
                   updateCourse={updateCourse} />} /> 
               <Route path="/Courses*" element={<Courses  />} /> {/* Navigates to specific course*/}
-              <Route path="/signin" element={<Signin />} /> {/* Navigates to sign in screen*/}
+              {/* <Route path="/signin" element={<Signin />} /> Navigates to sign in screen */}
               <Route path="/admin/users" element={<UserTable />} /> {/* Navigates to list of users*/}
               <Route path="/signup" element={<Signup />} /> {/* Navigates to sign up screen*/}
             </Routes>
