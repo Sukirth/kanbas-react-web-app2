@@ -9,10 +9,10 @@ import { useEffect, useState } from "react";
 import store from "./store";
 import { Provider } from "react-redux";
 import axios from "axios";
-import Signin from "../Users/signin";
-import Account from "../Users/account";
-import UserTable from "../Users/table";
-import Signup from "../Users/signup";
+import Signin from "../users/signin";
+import Account from "../users/account";
+import UserTable from "../users/table";
+import Signup from "../users/signup";
 
 const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:4000/api";
 
