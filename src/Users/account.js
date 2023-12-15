@@ -4,7 +4,7 @@ import * as client from "./client";
 import { useState, useEffect } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import Signup from "./signup";
-import Signin from "./signin";
+import Signin from "./Signin";
 
 function Account() {
   const navigate = useNavigate();
